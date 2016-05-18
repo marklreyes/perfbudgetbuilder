@@ -1,0 +1,55 @@
+<div class="panel-view panel-view-resources well well-sm">
+<h3>Resources</h3>
+<div class="table-responsive">
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>Resource Type</th>
+			<th>Total Files</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<strong>HTTP</strong>
+				<br>
+				<small>Number of HTTP resources loaded by the page.</small>
+			</td>
+			<td>
+				{{data.pageStats.numberResources}}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Static</strong>
+				<br>
+				<small>Number of static (that is, cacheable) resources on the page.</small>
+			</td>
+			<td>
+				{{data.pageStats.numberStaticResources}}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>JS</strong>
+				<br>
+				<small>Number of JavaScript resources referenced by the page.</small>
+			</td>
+			<td>
+				{{data.pageStats.numberJsResources}}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>CSS</strong>
+				<br>
+				<small>Number of CSS resources referenced by the page.</small>
+			</td>
+			<td>
+				{{data.pageStats.numberCssResources}}
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+</div>

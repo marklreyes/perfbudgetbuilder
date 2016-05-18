@@ -1,0 +1,20 @@
+{
+  "name": "Performance Budget Builder",
+  "version": "2.0",
+  "description": "Performance Budget Builder. It should be used when needing to evaluate the size of asset types that make up your web page.",
+  "main": "index.html",
+  "author": "Mark Reyes",
+  "license": "Closed Source",
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-concat": "*",
+    "gulp-clean": "*",
+    "gulp-uglify": "*",
+    "gulp-minify-html": "*",
+    "gulp-angular-templatecache": "*"
+  },
+  "scripts": {
+    "build": "npm run build-budgetMyPage defaultNoBuild",
+    "build-budgetMyPage": "gulp"
+  }
+}

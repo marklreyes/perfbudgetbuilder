@@ -1,0 +1,21 @@
+<div ng-controller="searchBar" class="col-md-12">
+	<div class="alert alert-danger" role="alert" ng-if="alert">
+		<!-- Request failed -->
+		{{data}}
+	</div>
+	<div ng-if="processStatus=='loading'">
+	    <span loader></span>
+	</div>
+	<!-- <div loading></div> -->
+	<div class="well well-lg">
+		<form class="form-inline">
+			<div class="form-group">
+				<label for="searchSiteInput">Webpage to scan:</label>
+				<input type="text" id="searchSiteInput" class="form-control" ng-model="searchField.webpage" placeholder="https://www.yourcoolsite.com">&nbsp;
+			</div>
+			<button type="submit" id="btn-scan" class="btn btn-primary" ng-click="scan();">Scan</button>
+			<button type="button" id="btn-start-over" class="btn btn-default" disabled="true" ng-click="startOver();"><span class="glyphicon glyphicon-refresh" aria-hidden=true></span>&nbsp;Start Over</button>
+		</form>
+	</div>
+	<div ng-if="template.dashboard.show" ng-include src="'template/partial/dashboard.html'"></div>
+</div>

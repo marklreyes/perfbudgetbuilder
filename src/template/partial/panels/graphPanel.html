@@ -1,0 +1,45 @@
+<div id="bargraph" class="panel-view panel-view-graph well well-sm">
+<h3>Graph</h3>
+<div class="b">
+	<div class="b-header">
+		<em class="b-size">
+			I propose a size of:
+			<span class="entry-proposed">
+				<input ng-change="adjustBudgetValue();" numbers-only type="text" ng-model="temp.totalProposedRequestBytes" value="{{temp.totalProposedRequestBytes}}">
+			</span>
+		</em>
+	</div>
+
+	<div class="b-budget">
+		<div class="b-cat-container">
+			<em class="actual-size">
+				My actual size:
+				<span>{{temp.totalActualRequestBytes}}</span>
+			</em>
+			<ul class="b-cat-list">
+				<li class="b-cat b-cat-html">
+					<label for="html">HTML</label>
+					<input ng-change="calculateBudgetValue(data.pageStats.htmlResponseBytes);" numbers-only id="html" type="text" ng-model="data.pageStats.htmlResponseBytes" pattern="[0-9]*" value="{{data.pageStats.htmlResponseBytes}}">
+				</li>
+				<li class="b-cat b-cat-css">
+					<label for="css">CSS</label>
+					<input ng-change="calculateBudgetValue(data.pageStats.cssResponseBytes);" numbers-only id="css" type="text" ng-model="data.pageStats.cssResponseBytes" pattern="[0-9]*" value="{{data.pageStats.cssResponseBytes}}">
+				</li>
+				<li class="b-cat b-cat-js">
+					<label for="js">JS</label>
+					<input ng-change="calculateBudgetValue(data.pageStats.javascriptResponseBytes);" numbers-only id="js" type="text" ng-model="data.pageStats.javascriptResponseBytes" pattern="[0-9]*" value="{{data.pageStats.javascriptResponseBytes}}">
+				</li>
+				<li class="b-cat b-cat-img">
+					<label for="img">Img</label>
+					<input ng-change="calculateBudgetValue(data.pageStats.imageResponseBytes);" numbers-only id="img" type="text" ng-model="data.pageStats.imageResponseBytes" pattern="[0-9]*" value="{{data.pageStats.imageResponseBytes}}">
+				</li>
+				<li class="b-cat b-cat-fonts">
+					<label for="fonts">Other</label>
+					<input ng-change="calculateBudgetValue(data.pageStats.otherResponseBytes);" numbers-only id="fonts" type="text" ng-model="data.pageStats.otherResponseBytes" pattern="[0-9]*" value="{{data.pageStats.otherResponseBytes}}">
+				</li>
+
+			</ul><!--end b-bar-->
+		</div><!--end cat-container-->
+	</div><!--end b-budget-->
+</div>
+</div>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<title>Performance Budget Builder</title>
+
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="js/html5shiv.min.js"></script>
+			<script src="js/respond.min.js"></script>
+		<![endif]-->
+
+		<link href="css/perfbudget.css" rel="stylesheet">
+	</head>
+	<body>
+		<header class="pb-header navbar">
+			<div class="container-fluid">
+				<img class="squirrel pull-left" src="images/squirrel.png" width="25px" height="25px">
+			</div>
+		</header>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<h1>PERFORMANCE BUDGET BUILDER</h1>
+					<p>
+						This easy-to-use tool allows you to scan a URL and view the size of the assets that make up your webpage.
+					</p>
+					<p>
+						 You can then set a size budget for your page, plugging in sizes for each asset category that will load on the page. The tool will adjust each category’s width accordingly and yell at you if you exceed your budget.
+					</p>
+				</div>
+			</div>
+
+			<!-- angular container ****************************************************** -->
+			<div ng-app="perfBudgetApp" id="perfBudgetApp" class="row" ng-controller="main" ng-show="template.main.show">
+				<div ng-include src="'template/pages/searchbar.html'"></div>
+			</div>
+			<!-- angular container ****************************************************** -->
+
+		</div>
+
+		<footer class="pb-footer">
+			<div class="container-fluid">
+				This project was drafted by <a href="http://www.marklreyes.com">Mark Reyes</a>. Kudos to <a href="http://bradfrost.com/blog/post/performance-budget-builder/" target="_blank">Brad Frost</a> for the original prototype.
+			</div>
+		</footer>
+
+<script>
+// TODO: wrap this in angular
+var callbacks = {};
+// Our JSONP callback. Checks for errors, then invokes our callback handlers.
+function JSON_CALLBACK(result) {
+  if (result.error) {
+    var errors = result.error.errors;
+    for (var i = 0, len = errors.length; i < len; ++i) {
+      if (errors[i].reason == 'badRequest' && API_KEY == 'yourAPIKey') {
+        alert('Please specify your Google API key in the API_KEY variable.');
+      } else {
+        // NOTE: your real production app should use a better
+        // mechanism than alert() to communicate the error to the user.
+        alert(errors[i].message);
+      }
+    }
+    return;
+  }
+
+  // Dispatch to each function on the callbacks object.
+  for (var fn in callbacks) {
+    var f = callbacks[fn];
+    if (typeof f == 'function') {
+      callbacks[fn](result);
+    }
+  }
+}
+</script>
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/bootstrap.min.js"></script>
+
+		<script src="js/angular.min.js"></script>
+
+<script src="build/dist/en/US/js/apps/perfbudget.js"></script>
+
+	</body>
+</html>

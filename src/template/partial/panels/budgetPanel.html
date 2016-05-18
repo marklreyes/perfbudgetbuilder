@@ -1,0 +1,56 @@
+<div class="panel-view panel-view-budget well well-sm">
+	<h3>Budget</h3>
+	<p>
+		<label>
+			HTML
+			<span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Number of uncompressed response bytes for the main HTML document and all iframes on the page."></span>
+		</label>
+		<input numbers-only ng-change="calculateBudgetValue(data.pageStats.htmlResponseBytes);" type="text" ng-model="data.pageStats.htmlResponseBytes" value="{{data.pageStats.htmlResponseBytes}}" class="form-control">
+	</p>
+	<p>
+		<label>
+			CSS
+			<span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Number of uncompressed response bytes for CSS resources on the page."></span>
+		</label>
+		<input numbers-only ng-change="calculateBudgetValue(data.pageStats.cssResponseBytes);" type="text" ng-model="data.pageStats.cssResponseBytes" value="{{data.pageStats.cssResponseBytes}}" class="form-control">
+	</p>
+	<p>
+		<label>
+			JS
+			<span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Number of uncompressed response bytes for JS resources on the page."></span>
+		</label>
+		<input numbers-only ng-change="calculateBudgetValue(data.pageStats.javascriptResponseBytes);" type="text" ng-model="data.pageStats.javascriptResponseBytes" value="{{data.pageStats.javascriptResponseBytes}}" class="form-control">
+	</p>
+	<p>
+		<label>
+			Img
+			<span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Number of response bytes for image resources on the page."></span>
+		</label>
+		<input numbers-only ng-change="calculateBudgetValue(data.pageStats.imageResponseBytes);" type="text" ng-model="data.pageStats.imageResponseBytes" value="{{data.pageStats.imageResponseBytes}}" class="form-control">
+	</p>
+	<p>
+		<label>
+			Other
+			<span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Number of response bytes for other resources on the page."></span>
+		</label>
+		<input numbers-only ng-change="calculateBudgetValue(data.pageStats.otherResponseBytes);" type="text" ng-model="data.pageStats.otherResponseBytes" value="{{data.pageStats.otherResponseBytes}}" class="form-control">
+	</p>
+	<p>
+		<strong>Initial Size:&nbsp;</strong>
+		<span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Total size of all request bytes sent by the page."></span>
+		<br>
+		<span ng-init="initialPageSize(data);">{{temp.initialRequestBytes}}</span>
+	</p>
+	<p>
+		<strong>Proposed Size:&nbsp;</strong>
+		<span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="The response bytes you propose."></span>
+		<br>
+		{{temp.totalProposedRequestBytes | bytes}}
+	</p>
+	<p>
+		<strong> Actual Size:&nbsp;</strong>
+		<span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="The response bytes you are actually entering."></span>
+		<br>
+		{{temp.totalActualRequestBytes |bytes}}
+	</p>
+</div>
